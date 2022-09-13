@@ -1,0 +1,18 @@
+form{
+    font-family: sans-serif;
+    font-weight: bold;
+    border: 1rem solid #2FB888;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    padding: 1rem;
+}
+input{
+    border-color: #F5F4F4;
+    border-radius: 2rem;
+    border-style: solid;
+}
