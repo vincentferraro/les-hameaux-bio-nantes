@@ -1,26 +1,35 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import '../style/Form.css'
 
-class Form extends Component{
+function Form() {
+    
 
-
-    render() {
-        return  <div>
-            <form method='post'>
-        <label for='mail'>Mail <input type="mail" /></label>
-        
-        <label for='date'>Date <input type="date"/></label>
-        
-        <label >URL <input type="text"/></label>
-        
-        <label>Message </label>
-        <textarea />
-        
-        <input type="submit" value="Envoyer" />
-        </form>
-        </div>
-        
+    const [name, setMail] = useState("")
+   /* const [date, setDate] = useState("2022-01-01")
+    const [url, setUrl] = useState(" ")*/
+    const [message , setMessage] = useState("")
+    
+    const handleSubmit=(evt)=>{
+        evt.preventDefault()
+        console.log(`${name}, ${message}`)
     }
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label for='mail'>Mail <input id='mail' type="mail" onChange={(e) =>  setMail(e.target.value)}/></label>
+
+                        <label for='date'>Date <input id='date' type="date" /></label>
+
+                <label for='url' >URL <input id='url' type="text"/></label>
+
+                <label for='message'>Message </label>
+                        <textarea id='message' onChange={(e) => setMessage(e.target.value)} />
+
+                <input type="submit" value="Envoyer"/>
+            </form>
+        </div>) 
+        
+    
 }
 
 export default Form
