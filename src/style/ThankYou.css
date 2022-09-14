@@ -1,0 +1,33 @@
+#thank-you{
+        width: 20rem;
+        height: 20rem;
+        color: #3C8266;
+        font-family: sans-serif;
+        font-weight: bold;
+        border: 1rem solid #2FB888;
+        border-radius: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    
+}
+span{
+    margin: auto;
+}
+@keyframes flight {
+    0% {margin-left: 0% }
+   /* 25% { margin-left:40% }
+    50% { margin-left: 60% }
+    75% { margin-left:80% }*/
+    100% { margin-left: 70%}
+    
+}
+#thank-you-img{
+    position: relative;
+    height: 2rem;
+    width: 2rem;
+    animation-name : flight;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
