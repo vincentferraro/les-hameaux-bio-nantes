@@ -1,4 +1,4 @@
-import logo from './ouivalo-logo.png'
+import logo from './img/ouivalo-logo.png'
 import './App.css';
 import Form from './component/Form'
 function App() {

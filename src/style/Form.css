@@ -6,13 +6,33 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+
 }
 label{
     padding: 1rem;
 }
 input{
-    border-color: #F5F4F4;
-    border-radius: 2rem;
-    border-style: solid;
+    margin-left:1rem;
+    border-radius: 5px;
+    border:solid 3px #F5F4F4;
+}
+input[type="submit"]{
+    background-color: #F5E41F;
+    color:#3C8266;
+    border-radius: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    width: 9rem;
+    height: 3rem;
+  
+    margin:1rem;
+    margin-left: auto;
+        margin-right: auto;
+}
+textarea{
+    margin:1rem;
+    border: solid 3px #F5F4F4;
+    height: 9rem;
+    width: 13rem;
+    resize: none;
 }
