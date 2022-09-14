@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import '../style/Form.css'
 
 function Form(props) {
@@ -10,27 +11,27 @@ function Form(props) {
     const [message , setMessage] = useState("")
     
     function handleSubmit() {
-        console.log(JSON.stringify({
-            "id": mail,
-            "date": date,
-            "urlRelais": url,
-            "message": message
-        }))
+        let data = {
+            "cle": "CLE-TEST-IOT",
+                "donnees": {
+                    "id": mail,
+                    "date": date,
+                    "urlRelais": url,
+                    "message": message
+                }
+        }
+        console.log(data)
         
-       fetch("https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec", {
-            method: 'POST',
-            mode:'no-cors',
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({
-                "id": mail,
-                "date": date,
-                "urlRelais": url,
-                "message":message
+        const sendData = async () => {
+            return await fetch('https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'text/plain'
+                },
+                body: JSON.stringify(data)
             })
-       }).then(res => console.log("message Envoyé", res))
-        .catch(rej => console.log(rej))
+        }
+        sendData().then(res => console.log("OK",res)).catch(rej => console.log("FAIL",rej))
 
     }
     return (
