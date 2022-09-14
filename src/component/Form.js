@@ -10,10 +10,16 @@ function Form(props) {
     const [message , setMessage] = useState("")
     
     function handleSubmit() {
-        console.log(mail, date, url, message)
+        console.log(JSON.stringify({
+            "id": mail,
+            "date": date,
+            "urlRelais": url,
+            "message": message
+        }))
         
-        fetch("https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec", {
+       fetch("https://script.google.com/macros/s/AKfycby-TJmFFUFTfiNUbMoSIZx8LVtiskQ-bUt4xO6hmrU0XQpJS8IPUBow/exec", {
             method: 'POST',
+            mode:'no-cors',
             headers: {
                 'Content-Type':'application/json'
             },
@@ -23,12 +29,13 @@ function Form(props) {
                 "urlRelais": url,
                 "message":message
             })
-        }).then(res => console.log("message Envoyé",res))
+       }).then(res => console.log("message Envoyé", res))
+        .catch(rej => console.log(rej))
 
     }
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <label for='mail'>Mail <input id='mail' type="mail" onChange={(e)=> setMail(e.target.value)}/></label>
 
                 <label for='date'>Date <input id='date' type="date" onChange={(e) => setDate(e.target.value) } /></label>
@@ -37,7 +44,7 @@ function Form(props) {
 
                 <label for='message'>Message </label>
                         <textarea id='message' onChange={(e) => setMessage(e.target.value)} />
-                <input type="submit" value="Envoyer" />
+                <input type="button" value="Envoyer" onClick={handleSubmit} />
             </form>
         </div>) 
         
